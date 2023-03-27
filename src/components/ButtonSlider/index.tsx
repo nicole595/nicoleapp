@@ -3,10 +3,11 @@ import { styles } from "./styles";
 
 export interface IBSlider {
     onPressI: () => void
+    cor: boolean
 }
 
-export function ButtonSlider({ onPressI }: IBSlider){
+export function ButtonSlider({ onPressI, cor }: IBSlider){
     return(
-        <TouchableOpacity style={styles.ball} onPress={onPressI} />
+        <TouchableOpacity style={cor? styles.ballCor: styles.ball} onPress={onPressI} />
     )
 }
