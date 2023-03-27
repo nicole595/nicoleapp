@@ -4,8 +4,8 @@ import {
     ComponentButtonSlider, ComponentListMarker, ComponentTitleSlider
 } from '../../components';
 import { styles } from './styles';
-export function Slider1({ setPageI }: IPage) {
-    const slide1 = require("../../assets/slide1.png")
+export function Slider2({ setPageI }: IPage) {
+    const slide1 = require("../../assets/image3.png")
     const slide1Texts = [
         { id: '1', text: 'Fale com a comunidade'},
         { id: '2', text: 'Envie o cronograma de cuidados'},
@@ -16,7 +16,7 @@ export function Slider1({ setPageI }: IPage) {
             <View style={styles.panel}>
                 <ComponentTitleSlider titleI='Comunique com a comunidade' />
                 <FlatList
-                  data={slide1Texts}S
+                  data={slide1Texts}
                   renderItem={({ item }) =>
                     <ComponentListMarker key={item.id} textMarker={item.text} />
             }   
@@ -24,10 +24,10 @@ export function Slider1({ setPageI }: IPage) {
             />     
             </View>
             <View style={styles.buttonSlider}>
-                <ComponentButtonSlider onPresI={() => setPageI(1)} />
-                <ComponentButtonSlider onPresI={() => setPageI(2)} />
-                <ComponentButtonSlider onPresI={() => setPageI(3)} />
-                <ComponentButtonSlider onPresI={() => setPageI(4)} />
+                <ComponentButtonSlider onPressI={() => setPageI(1)} />
+                <ComponentButtonSlider onPressI={() => setPageI(2)} />
+                <ComponentButtonSlider onPressI={() => setPageI(3)} />
+                <ComponentButtonSlider onPressI={() => setPageI(4)} />
             </View>
         </ImageBackground>
     );

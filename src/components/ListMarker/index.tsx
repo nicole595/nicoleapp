@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native/types";
+import { Text, View } from "react-native";
 import { Marker } from "../Marker";
 import { styles } from "./styles";
 

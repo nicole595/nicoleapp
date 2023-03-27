@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
-import {
-  ScreenSlider1, ScreenSlider2, ScreenSlider3, ScreenSlider4
-} from "./src/screens"
+import { 
+  ScreenSlider1, ScreenSlider2, ScreenSlider3, ScreenSlider4 
+}from "./src/screens"
 export interface IPage {
   setPageI: Dispatch<SetStateAction<number>>
 }
