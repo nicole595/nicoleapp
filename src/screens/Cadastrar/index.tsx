@@ -1,6 +1,7 @@
 import React from 'react';
 import { MaterialIcons } from '@expo/vector-icons'; 
 import { FontAwesome } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons'; 
 import { View, Text, KeyboardAvoidingView } from "react-native";
 import { styles } from "./styles"
 import { TextInput } from 'react-native-gesture-handler';
@@ -13,6 +14,14 @@ export function Cadastrar({navigation}: LoginTypes) {
         <View style={styles.container}>
             <KeyboardAvoidingView>
             <Text style={styles.titles}>Cadastrar</Text>
+            <View style={styles.formRow}>
+            <Ionicons name="person" style={styles.icon} />
+                <TextInput
+                      placeholder= "Nome"
+                      placeholderTextColor={colors.third}
+                      style={styles.input}
+                    />
+            </View>
             <View style={styles.formRow}>
                 <MaterialIcons name="email" style={styles.icon} />
                 <TextInput
@@ -34,7 +43,7 @@ export function Cadastrar({navigation}: LoginTypes) {
                     />
             </View>
             <ComponentButtonInterface title="Salvar" type="primary" onPressI={() => { console.log('Salvar')}} />
-            <ComponentButtonInterface title="Voltar" type="primary" onPressI={() => { navigation.navigate('Login')}} />
+            <ComponentButtonInterface title="Voltar" type="secondary" onPressI={() => { navigation.navigate('Login')}} />
             </KeyboardAvoidingView>
         </View>
     )
