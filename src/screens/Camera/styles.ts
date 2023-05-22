@@ -7,6 +7,9 @@ export const styles = StyleSheet.create({
     },
     camera: {
       flex: 1,
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+      marginBottom: 10
     },
     buttonContainer: {
       flex: 1,
