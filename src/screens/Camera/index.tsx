@@ -126,6 +126,7 @@ export function CameraScreen() {
                     >
                         <ComponentButtonTakePicture onPress={takePicture} />              
                     </Camera>
+                    <ComponentButtonInterface title='Escaneie novamente' type='primary' onPressI={()=> setScanned(false)}/>
                     <View style={styles.sorriso}>
                         {face && face.smilingProbability && face.smilingProbability > 0.5 ?(
                         <Text>Sorrindo</Text>
@@ -133,7 +134,6 @@ export function CameraScreen() {
                         <Text>Não</Text>
                     )} 
                     </View>
-                    <ComponentButtonInterface title='Abrir imagem' type='secondary' onPressI={pickImage} />
                 </>
             ) : (
                 <>
@@ -144,6 +144,7 @@ export function CameraScreen() {
                         <Image source={{ uri: photo.uri }} style={styles.img} />
                     )}
                     <ComponentButtonInterface title='Salvar imagem' type='secondary' onPressI={savePhoto} />
+                    <ComponentButtonInterface title='Abrir imagem' type='secondary' onPressI={pickImage} />
                 </>
             )}
         </View>
