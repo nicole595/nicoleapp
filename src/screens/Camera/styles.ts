@@ -30,6 +30,11 @@ export const styles = StyleSheet.create({
     img: {
         width: Dimensions.get('window').width * 0.8,
         height: Dimensions.get('window').width * 0.8,
+    },
+    sorriso: {
+      flex: 1,
+      alignSelf: 'flex-end',
+      alignItems: 'center',
     }
   });
   
