@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MaterialIcons } from '@expo/vector-icons'; 
 import { FontAwesome } from '@expo/vector-icons'; 
 import { View, Text, KeyboardAvoidingView, TextInput, Alert } from "react-native";
@@ -9,6 +9,14 @@ import {LoginNavigation, LoginTypes} from "../../navigations/login.navigation"
 import { AxiosError } from 'axios';
 import { useAuth } from '../../hooks/auth';
 import { IAuthenticate } from '../../services/data/User';
+
+export interface IErrorApi {
+    errors: {
+        rule: string
+        field: string
+        message: string
+    }[]
+}
 
 export function Login({navigation}: LoginTypes)  {
     const { signIn } = useAuth();
@@ -30,6 +38,16 @@ export function Login({navigation}: LoginTypes)  {
             setIsLoading(false);
         }
     }
+        function handleChange(item: IAuthenticate) {
+            setData({ ...data, ...item })
+        }
+    
+        useEffect(() => {
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 2000)
+        }, [])
+
     return (
         <View style={styles.container}>
             <KeyboardAvoidingView>

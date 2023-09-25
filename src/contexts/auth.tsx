@@ -8,7 +8,7 @@ import { isAfter, parseISO } from "date-fns";
 
 export interface IAuthContextData {
     signIn(credentials: IAuthenticate): Promise<void>
-    singOut(): Promise<void>
+    signOut(): Promise<void>
     user?: IUserLogin
 }
 export interface IProvider {
@@ -34,7 +34,7 @@ const AuthProvider = ({ children }: IProvider) => {
         await AsyncStorage.removeItem("user");
     };
 
-    const singOut = useCallback(async () => {
+    const signOut = useCallback(async () => {
         setAuth({} as IUserLogin);
         removeLocalStorage();
         delete api.defaults.headers.common.Authorization;
@@ -61,7 +61,7 @@ const AuthProvider = ({ children }: IProvider) => {
         <AuthContext.Provider
             value={{
                 signIn,
-                singOut,
+                signOut,
                 user: auth
             }}
         >
