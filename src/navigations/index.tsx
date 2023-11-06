@@ -6,6 +6,7 @@ import { TabNavigation } from "./tab.navigation"
 
 export function Navigation() {
   const { user } = useAuth();
+  console.log(user)
   return (
     <NavigationContainer>
       {user?.token ? <TabNavigation /> : <LoginNavigation />}

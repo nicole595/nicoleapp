@@ -60,6 +60,7 @@ export function Login({navigation}: LoginTypes)  {
                         keyboardType="email-address"
                         autoCapitalize="none"
                         style={styles.input}
+                        onChangeText={(i) => handleChange({ email: i})}
                 />
                 </View>
 
@@ -71,9 +72,10 @@ export function Login({navigation}: LoginTypes)  {
                     secureTextEntry={true}
                     autoCapitalize="none"
                     style={styles.input}
+                    onChangeText={(i) => handleChange({ password: i})}
                     />
             </View>
-            <ComponentButtonInterface title ="Login" type="primary" onPressI={() => { navigation.navigate('Tab')}} />
+            <ComponentButtonInterface title ="Login" type="primary" onPressI={handleSignIn} />
             <ComponentButtonInterface title ="Cadastrar" type="secondary" onPressI={() => { navigation.navigate('Cadastrar')}} />
             </KeyboardAvoidingView>
         </View>

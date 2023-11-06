@@ -6,10 +6,13 @@ import { TabTypes } from "../../navigations/tab.navigation";
 import { useAuth } from "../../hooks/auth";
 import { IAuthenticate } from "../../services/data/User";
 import { AxiosError } from "axios"
+import { ComponentLoading } from "../../components"
+
 
 export function Perfil({ navigation }: TabTypes) {
+    const { user } = useAuth();
     const { signOut } = useAuth();
-    const[isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     async function handleSignOut() {
         try {
             setIsLoading(true);
@@ -21,11 +24,22 @@ export function Perfil({ navigation }: TabTypes) {
             setIsLoading(false);
         }
     }
+    useEffect(() => {
+        if (user) {
+            setIsLoading(false);
+        }
+    }, [user]);
 
     return (
-        <View style={styles.container}>
-            <Text>Perfil</Text>
-            <ComponentButtonInterface title="Log out" type="secondary" onPressI={handleSignOut}/>
-        </View>
+        <>
+            {isLoading ? (
+                <ComponentLoading />
+            ) : (
+                <View style={styles.container}>
+                    <Text>Perfil</Text>
+                    <ComponentButtonInterface title="Log out" type="secondary" onPressI={handleSignOut} />
+                </View>
+            )}
+        </>
     )
 }
